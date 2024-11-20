@@ -34,6 +34,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.tareasbasic.navigation.AppNavigation
 import com.example.tareasbasic.ui.theme.TareasBasicTheme
 
 // Hola
@@ -43,74 +44,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TareasBasicTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                    }
+                    AppNavigation()
                 }
             }
         }
     }
 
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column (modifier = Modifier.fillMaxSize().background(colorResource(R.color.verdecito))) { // Ahí feo que flipas
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            Image(
-                painter = painterResource(R.drawable.whalogo),
-                contentDescription = "IconoWhasap",
-                modifier = Modifier.size(250.dp)
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-            Icon(imageVector = Icons.Default.Search, contentDescription = null, modifier = Modifier.padding(5.dp))
-            Icon(imageVector = Icons.Default.MoreVert, contentDescription = null, modifier = Modifier.padding(25.dp))
-        } // Whasa
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-
-        }
-        User(name = stringResource(id = R.string.persona1))
-        User(name = stringResource(id = R.string.persona2))
-        User(name = stringResource(id = R.string.persona3))
-        User(name = stringResource(id = R.string.persona4))
-        User(name = stringResource(id = R.string.persona5))
-    }
-}
-
-@Composable
-fun User(name: String){
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(15.dp),
-        verticalAlignment = Alignment.CenterVertically){
-
-        Icon(
-            imageVector = Icons.Default.AccountCircle,
-            contentDescription = "lara makinonga",
-            modifier = Modifier
-                .size(80.dp)
-                .padding(10.dp)
-        )
-        Column(
-            modifier = Modifier.weight(1f)
-        ) {
-            Text(text = name)
-
-        }
-    }
-}
 
 
