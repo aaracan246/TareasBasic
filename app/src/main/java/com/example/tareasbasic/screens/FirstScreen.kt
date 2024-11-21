@@ -25,12 +25,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.TareasBasic.navigation.AppScreen
+import com.example.tareasbasic.navigation.AppScreen
 import com.example.tareasbasic.R
 
 @Composable
 fun FirstScreen(navControlador: NavController) {
-    Column (modifier = Modifier.fillMaxSize().background(colorResource(R.color.verdecito))) { // Ahí feo que flipas
+    Column (
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(R.color.verdecito))) { // Ahí feo que flipas
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Start,
@@ -50,15 +53,12 @@ fun FirstScreen(navControlador: NavController) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
-        ) {
-
-
-        }
+        ) {}
         User(name = stringResource(id = R.string.persona1)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona1")}
-        User(name = stringResource(id = R.string.persona2)) { navControlador.navigate(route = AppScreen.SecondScreen.route)} // Solo hay que implementar una, así que para hacerlo más simple copy paste en todas aunque lleven a la misma conversación
-        User(name = stringResource(id = R.string.persona3)) { navControlador.navigate(route = AppScreen.SecondScreen.route)}
-        User(name = stringResource(id = R.string.persona4)) { navControlador.navigate(route = AppScreen.SecondScreen.route)}
-        User(name = stringResource(id = R.string.persona5)) { navControlador.navigate(route = AppScreen.SecondScreen.route)}
+        User(name = stringResource(id = R.string.persona2)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona2")} // Solo hay que implementar una, así que para hacerlo más simple copy paste en todas aunque lleven a la misma conversación
+        User(name = stringResource(id = R.string.persona3)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona3")}
+        User(name = stringResource(id = R.string.persona4)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona4")}
+        User(name = stringResource(id = R.string.persona5)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona5")}
     }
 }
 

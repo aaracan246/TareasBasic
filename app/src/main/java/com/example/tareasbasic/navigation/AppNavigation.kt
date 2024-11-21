@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.TareasBasic.navigation.AppScreen
 import com.example.tareasbasic.screens.FirstScreen
 import com.example.tareasbasic.screens.SecondScreen
 
@@ -20,7 +19,8 @@ fun AppNavigation(){
             FirstScreen(navControlador)
         }
 
-        composable(AppScreen.SecondScreen.route + "/" + "{text}",
+        composable(
+            AppScreen.SecondScreen.route + "/" + "{text}",
             arguments = listOf(navArgument(name = "text"){ type = NavType.StringType })){
             SecondScreen(navControlador, it.arguments?.getString("text"))
         }

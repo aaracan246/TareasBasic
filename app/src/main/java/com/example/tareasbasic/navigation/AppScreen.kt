@@ -1,6 +1,6 @@
-package com.example.TareasBasic.navigation
+package com.example.tareasbasic.navigation
 
 sealed class AppScreen(val route: String) {
-    object FirstScreen: AppScreen("FirstScreen")
-    object SecondScreen: AppScreen("SecondScreen")
+    data object FirstScreen: AppScreen("FirstScreen")
+    data object SecondScreen: AppScreen("SecondScreen")
 }
