@@ -41,15 +41,13 @@ fun SecondScreen(navController: NavController, text: String?) {
                 contentDescription = "Patrás que nos vamos",
                 modifier = Modifier
                     .size(40.dp)
-                    .clickable { navController.popBackStack() }
-            )
-            Text(
-                text = stringResource(R.string.persona1),
-                modifier = Modifier
-                    .padding(start = 8.dp)
-
-            )
+                    .clickable { navController.popBackStack() })
+                text?.let {
+                    Text(it)
+                }
         }
+
+
 
         Spacer(modifier = Modifier.height(16.dp))
 

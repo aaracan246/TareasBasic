@@ -54,21 +54,21 @@ fun FirstScreen(navControlador: NavController) {
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {}
-        User(name = stringResource(id = R.string.persona1)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona1")}
-        User(name = stringResource(id = R.string.persona2)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona2")} // Solo hay que implementar una, así que para hacerlo más simple copy paste en todas aunque lleven a la misma conversación
-        User(name = stringResource(id = R.string.persona3)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona3")}
-        User(name = stringResource(id = R.string.persona4)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona4")}
-        User(name = stringResource(id = R.string.persona5)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona5")}
+        User(name = stringResource(id = R.string.persona1), navControlador)
+        User(name = stringResource(id = R.string.persona2), navControlador)
+        User(name = stringResource(id = R.string.persona3), navControlador)
+        User(name = stringResource(id = R.string.persona4), navControlador)
+        User(name = stringResource(id = R.string.persona5), navControlador)
     }
 }
 
 @Composable
-fun User(name: String, onClick: () -> Unit){
+fun User(name: String, navController: NavController){
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(15.dp)
-            .clickable { onClick() },
+            .clickable { navController.navigate(route = AppScreen.SecondScreen.route + "/" + name) },
         verticalAlignment = Alignment.CenterVertically){
 
         Icon(
