@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.tareasbasic.R
@@ -43,7 +44,7 @@ fun SecondScreen(navController: NavController, text: String?) {
                     .clickable { navController.popBackStack() }
             )
             Text(
-                text = "$text",
+                text = stringResource(R.string.persona1),
                 modifier = Modifier
                     .padding(start = 8.dp)
 
