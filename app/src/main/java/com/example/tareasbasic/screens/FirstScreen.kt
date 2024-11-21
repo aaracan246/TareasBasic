@@ -2,6 +2,7 @@ package com.example.tareasbasic.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.TareasBasic.navigation.AppScreen
 import com.example.tareasbasic.R
 
 @Composable
@@ -52,20 +54,21 @@ fun FirstScreen(navControlador: NavController) {
 
 
         }
-        User(name = stringResource(id = R.string.persona1))
-        User(name = stringResource(id = R.string.persona2))
-        User(name = stringResource(id = R.string.persona3))
-        User(name = stringResource(id = R.string.persona4))
-        User(name = stringResource(id = R.string.persona5))
+        User(name = stringResource(id = R.string.persona1)) { navControlador.navigate(route = "${AppScreen.SecondScreen.route}/Persona1")}
+        User(name = stringResource(id = R.string.persona2)) { navControlador.navigate(route = AppScreen.SecondScreen.route)} // Solo hay que implementar una, así que para hacerlo más simple copy paste en todas aunque lleven a la misma conversación
+        User(name = stringResource(id = R.string.persona3)) { navControlador.navigate(route = AppScreen.SecondScreen.route)}
+        User(name = stringResource(id = R.string.persona4)) { navControlador.navigate(route = AppScreen.SecondScreen.route)}
+        User(name = stringResource(id = R.string.persona5)) { navControlador.navigate(route = AppScreen.SecondScreen.route)}
     }
 }
 
 @Composable
-fun User(name: String){
+fun User(name: String, onClick: () -> Unit){
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(15.dp),
+            .padding(15.dp)
+            .clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically){
 
         Icon(
